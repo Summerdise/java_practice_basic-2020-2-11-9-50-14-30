@@ -29,22 +29,22 @@ public class Teacher {
     public void setStudentList(ArrayList<Student> studentList) {
         this.studentList = studentList;
     }
-    public ArrayList<Student> findSame(){
+
+    public ArrayList<Student> findSame() {
         ArrayList<Student> sameStudent = new ArrayList<>();
-        HashSet<String> hadIdNumber  = new HashSet<>();
-        for(int i=0;i<studentList.size();i++){
-            Student nowStu = studentList.get(i);
-            if(!hadIdNumber.contains(nowStu.getIdNum())){
+        HashSet<String> hadIdNumber = new HashSet<>();
+        for (Student nowStu : studentList) {
+            if (!hadIdNumber.contains(nowStu.getIdNum())) {
                 hadIdNumber.add(nowStu.getIdNum());
-            }else{
+            } else {
                 sameStudent.add(nowStu);
             }
         }
         return sameStudent;
     }
 
-    public void printStudentList(ArrayList<Student> studentList){
-        for(int i=0;i<studentList.size();i++){
+    public void printStudentList(ArrayList<Student> studentList) {
+        for (int i = 0; i < studentList.size(); i++) {
             System.out.println(studentList.get(i).toString());
         }
     }

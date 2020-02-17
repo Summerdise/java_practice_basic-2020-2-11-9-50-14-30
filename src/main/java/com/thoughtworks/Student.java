@@ -35,7 +35,7 @@ public class Student {
         this.name = name;
         this.idNum = idNum;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-        Date date = null ;
+        Date date = null;
         try {
             date = simpleDateFormat.parse(dateStr);
         } catch (ParseException e) {
@@ -49,15 +49,8 @@ public class Student {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
         String dateStr = simpleDateFormat.format(date);
         Date nowDate = new Date();
-        int studyYear = nowDate.getYear()- date.getYear();
-        return String.format("我叫%s，我的学号是%s，%s入学，学龄%d年",name,idNum,dateStr,studyYear);
+        int studyYear = nowDate.getYear() - date.getYear();
+        return String.format("我叫%s，我的学号是%s，%s入学，学龄%d年", name, idNum, dateStr, studyYear);
     }
-
-//    public void printStudent(){
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
-//        String dateStr = simpleDateFormat.format(date);
-//        Date nowDate = new Date();
-//        int studyYear = nowDate.getYear()- date.getYear();
-//        return String.format("我叫%s，我的学号是%s，%s入学，学龄%d年",name,idNum,dateStr,studyYear));
-//    }
+    
 }
