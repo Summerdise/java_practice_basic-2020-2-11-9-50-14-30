@@ -1,7 +1,7 @@
 package com.thoughtworks;
 
 import java.text.*;
-import java.util.Date;
+import java.util.*;
 
 public class Student {
     private String name;
@@ -52,5 +52,17 @@ public class Student {
         int studyYear = nowDate.getYear() - date.getYear();
         return String.format("我叫%s，我的学号是%s，%s入学，学龄%d年", name, idNum, dateStr, studyYear);
     }
-    
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return Objects.equals(idNum, student.idNum);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idNum);
+    }
 }

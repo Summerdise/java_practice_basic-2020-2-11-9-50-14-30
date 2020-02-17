@@ -32,12 +32,21 @@ public class Teacher {
 
     public ArrayList<Student> findSame() {
         ArrayList<Student> sameStudent = new ArrayList<>();
-        HashSet<String> hadIdNumber = new HashSet<>();
-        for (Student nowStu : studentList) {
-            if (!hadIdNumber.contains(nowStu.getIdNum())) {
-                hadIdNumber.add(nowStu.getIdNum());
-            } else {
-                sameStudent.add(nowStu);
+        HashSet<Student> hadOnceIdSet = new HashSet<>();
+        HashSet<Student> hadSecondIdSet = new HashSet<>();
+
+        for(int i=0;i<studentList.size();i++){
+            Student nowStudent = studentList.get(i);
+            if(hadOnceIdSet.contains(nowStudent)){
+                hadSecondIdSet.add(nowStudent);
+                sameStudent.add(nowStudent);
+            }else{
+                hadOnceIdSet.add(nowStudent);
+            }
+        }
+        for(Student key : hadOnceIdSet){
+            if(hadSecondIdSet.contains(key)){
+                sameStudent.add(key);
             }
         }
         return sameStudent;
