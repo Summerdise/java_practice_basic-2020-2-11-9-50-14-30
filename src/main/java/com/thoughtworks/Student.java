@@ -28,6 +28,9 @@ public class Student {
         this.date = date;
     }
 
+    public Student() {
+    }
+
     public Student(String name, String idNum, String dateStr) {
         this.name = name;
         this.idNum = idNum;
@@ -40,11 +43,21 @@ public class Student {
         }
         this.date = date;
     }
-    public void printStudent(){
+
+    @Override
+    public String toString() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
         String dateStr = simpleDateFormat.format(date);
         Date nowDate = new Date();
         int studyYear = nowDate.getYear()- date.getYear();
-        System.out.println(String.format("我叫%s，我的学号是%s，%s入学，学龄%d年",name,idNum,dateStr,studyYear));
+        return String.format("我叫%s，我的学号是%s，%s入学，学龄%d年",name,idNum,dateStr,studyYear);
     }
+
+//    public void printStudent(){
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+//        String dateStr = simpleDateFormat.format(date);
+//        Date nowDate = new Date();
+//        int studyYear = nowDate.getYear()- date.getYear();
+//        return String.format("我叫%s，我的学号是%s，%s入学，学龄%d年",name,idNum,dateStr,studyYear));
+//    }
 }
