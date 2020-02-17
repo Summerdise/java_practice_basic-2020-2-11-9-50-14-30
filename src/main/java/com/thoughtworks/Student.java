@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Student {
     private String name;
-    private int idNum;
+    private String idNum;
     private Date date;
 
     public String getName() {
@@ -16,7 +16,7 @@ public class Student {
         this.name = name;
     }
 
-    public int getIdNum() {
+    public String getIdNum() {
         return idNum;
     }
 
@@ -28,7 +28,7 @@ public class Student {
         this.date = date;
     }
 
-    public Student(String name, int idNum, String dateStr) {
+    public Student(String name, String idNum, String dateStr) {
         this.name = name;
         this.idNum = idNum;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
@@ -39,5 +39,12 @@ public class Student {
             e.printStackTrace();
         }
         this.date = date;
+    }
+    public void printStudent(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+        String dateStr = simpleDateFormat.format(date);
+        Date nowDate = new Date();
+        int studyYear = nowDate.getYear()- date.getYear();
+        System.out.println(String.format("我叫%s，我的学号是%s，%s入学，学龄%d年",name,idNum,dateStr,studyYear));
     }
 }
