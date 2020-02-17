@@ -45,7 +45,7 @@ public class Teacher {
 
     public void printStudentList(ArrayList<Student> studentList){
         for(int i=0;i<studentList.size();i++){
-            studentList.get(i).toString();
+            System.out.println(studentList.get(i).toString());
         }
     }
 }
