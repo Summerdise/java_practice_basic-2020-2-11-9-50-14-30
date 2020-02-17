@@ -35,17 +35,17 @@ public class Teacher {
         HashSet<Student> hadOnceIdSet = new HashSet<>();
         HashSet<Student> hadSecondIdSet = new HashSet<>();
 
-        for(int i=0;i<studentList.size();i++){
+        for (int i = 0; i < studentList.size(); i++) {
             Student nowStudent = studentList.get(i);
-            if(hadOnceIdSet.contains(nowStudent)){
+            if (hadOnceIdSet.contains(nowStudent)) {
                 hadSecondIdSet.add(nowStudent);
                 sameStudent.add(nowStudent);
-            }else{
+            } else {
                 hadOnceIdSet.add(nowStudent);
             }
         }
-        for(Student key : hadOnceIdSet){
-            if(hadSecondIdSet.contains(key)){
+        for (Student key : hadOnceIdSet) {
+            if (hadSecondIdSet.contains(key)) {
                 sameStudent.add(key);
             }
         }
